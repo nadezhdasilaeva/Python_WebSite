@@ -57,15 +57,17 @@ async def create_avatar(request: Request, file: UploadFile = File(...), db: Sess
         # Check file size
         if len(image_data) > 2 * 1024 * 1024:
             errors.append("Файл слишком большой. Максимальный допустимый размер 2 МВ.")
-            raise HTTPException(status_code=413, detail="File too large. Maximum size is 2MB.")
+            return templates.TemplateResponse("UploadAvatar.html", {"request": request, "errors": errors})
         if not image_db:
             image_instance = Avatar(user_id=user.id, image=image_data)
             db.add(image_instance)
             db.commit()
-            raise HTTPException(status_code=200)
+            response = RedirectResponse(url="/account", status_code=302)
+            return response
         else:
             image_db.update_avatar(image_data)
             db.add(image_db)
             db.commit()
             db.refresh(image_db)
-            raise HTTPException(status_code=200)
+            response = RedirectResponse(url="/account", status_code=302)
+            return response
