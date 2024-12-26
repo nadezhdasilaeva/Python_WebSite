@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Главная страница</title>
+{% endblock %}
+
+{% block style %}
+    <style>
+        .profile-pic{
+        display: inline-block;
+        vertical-align: middle;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+        border-radius: 50%;
+        }
+
+        .profile-pic img{
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        }
+        .profile-menu .dropdown-menu {
+        right: 0;
+        left: unset;
+        }
+        .profile-menu .fa-fw {
+        margin-right: 10px;
+        }
+
+        .toggle-change::after {
+        border-top: 0;
+        border-bottom: 0.3em solid;
+        }
+        .navbar-nav .nav-link {
+            font-size: 1.25rem; /* Увеличьте размер шрифта по вашему усмотрению */
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container">
+        <h3 class="text-center" style="margin-top: 20;">Главная страница</h3>
+        {% for error in errors %}
+                    <div class="alert alert-danger" role="alert">
+                            {{ error }}
+                    </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        document.querySelectorAll('.dropdown-toggle').forEach(item => {
+            item.addEventListener('click', event => {
+                if(event.target.classList.contains('dropdown-toggle') ){
+                event.target.classList.toggle('toggle-change');
+                }
+                else if(event.target.parentElement.classList.contains('dropdown-toggle')){
+                event.target.parentElement.classList.toggle('toggle-change');
+                }
+            })
+        });
+    </script>
+{% endblock %}

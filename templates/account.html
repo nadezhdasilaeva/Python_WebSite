@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Профиль</title>
+{% endblock %}
+
+{% block style %}
+    <style>
+        .profile-pic{
+        display: inline-block;
+        vertical-align: middle;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+        border-radius: 50%;
+        }
+
+        .profile-pic img{
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        }
+        .profile-menu .dropdown-menu {
+        right: 0;
+        left: unset;
+        }
+        .profile-menu .fa-fw {
+        margin-right: 10px;
+        }
+
+        .toggle-change::after {
+        border-top: 0;
+        border-bottom: 0.3em solid;
+        }
+        .navbar-nav .nav-link {
+            font-size: 1.25rem; /* Увеличьте размер шрифта по вашему усмотрению */
+        }
+        .row {
+            display: flex;
+            justify-content: center; /* или flex-start, flex-end, center в зависимости от ваших нужд */
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    <section style="background-color: #eee; min-height: 92vh;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                            class="rounded-circle img-fluid" style="width: 150px;">
+                            <h5 class="my-3">{{user.name}}</h5>
+                            <div class="d-flex justify-content-center mb-2">
+                                <a href="/avatar" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary ms-1">Загрузить изображение</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Полное имя</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{user.name}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Почта</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{user.email}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Телефон</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{user.phone}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary" style="margin-top: 30px;">Редактировать</button>
+                                    <p class="mb-0"></p>
+                                </div> 
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0"></p>
+                                </div>                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
