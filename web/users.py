@@ -26,7 +26,12 @@ def account(request: Request, db: Session=Depends(get_session)):
         payload = decode(param, SECRET_KEY, algorithms=[ALGORITHM])
         id = payload.get("sub")
         user = db.query(User).filter(User.id == id).first()
-        return templates.TemplateResponse("account.html", {"request": request, "user": user})
+        image_db = db.exec(select(Avatar).where(Avatar.user_id == user.id)).first()
+        if image_db:
+            image_decode = base64.b64encode(image_db.image).decode("utf-8")
+            return templates.TemplateResponse("account.html", {"request": request, "user": user, "img": image_decode})
+        else:
+            return templates.TemplateResponse("account.html", {"request": request, "user": user})
 
 
 @router.get("/avatar")
