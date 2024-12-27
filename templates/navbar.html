@@ -18,9 +18,16 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu"> 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="profile-pic">
-                            <img src="https://cfimages.adobe.com/files/2018/07/Function.jpeg" alt="Profile Picture">
-                        </div>
+                        {% if img %}
+                            <div class="profile-pic">
+                                <img src="data:image/png;base64,{{ img }}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"/>
+                            </div>
+                        {% else %}
+                            <div class="profile-pic">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                                class="rounded-circle img-fluid" style="width: 150px;">
+                            </div>
+                        {% endif %}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="/account"><i class="fas fa-sliders-h fa-fw"></i>Профиль</a></li>
