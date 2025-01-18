@@ -1,0 +1,66 @@
+<form id="quiz-form" method="POST" action="/tests/{{1}}/{{1}}" style="margin-bottom: 20px;">
+    <div class="form-group">
+        <label for="exercise">{{ tests.0.data[0].exercise }}</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="A" value="A">
+            <label class="form-check-label" for="A">Высокая сложность кода</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="B" value="B">
+            <label class="form-check-label" for="B">Схожесть на английский язык</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="C" value="C">
+            <label class="form-check-label" for="C">Ограниченная функциональность</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="D" value="D">
+            <label class="form-check-label" for="D">Ограниченная функциональность</label>
+        </div>  
+    </div>            
+    {% if messages[tests.0.id] %}
+        <div class="alert alert-success small-msg" role="alert" style="margin-top: 15px; width: 120px;">
+            {{ messages[tests.0.id] }}
+        </div>
+    {% endif %}
+    {% if errors[tests.0.id] %}
+        <div class="alert alert-danger small-msg" role="alert" style="margin-top: 15px; width: 120px;">
+            {{ errors[tests.0.id] }}
+        </div>
+    {% endif %}
+    
+    <button type="submit" class="btn btn-primary shadow-lg" style="margin-top: 10px;">Проверить</button>
+</form>
+
+<form id="quiz-form" method="POST" action="/tests/{{1}}/{{2}}">
+    <div class="form-group">
+        <label for="exercise">{{ tests.1.data[0].exercise }}</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="A" value="A">
+            <label class="form-check-label" for="A">Создание веб-приложений</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="B" value="B">
+            <label class="form-check-label" for="B">Анализ данных</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="C" value="C">
+            <label class="form-check-label" for="C">Искусственный интеллект</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="D" value="D">
+            <label class="form-check-label" for="D">Все вышеперечисленное</label>
+        </div>
+    </div>
+    {% if messages[tests.1.id] %}
+        <div class="alert alert-success small-msg" role="alert" style="margin-top: 15px; width: 120px;">
+            {{ messages[tests.1.id] }}
+        </div>
+    {% endif %}
+    {% if errors[tests.1.id] %}
+        <div class="alert alert-danger small-msg" role="alert" style="margin-top: 15px; width: 120px;">
+            {{ errors[tests.1.id] }}
+        </div>
+    {% endif %}
+    <button type="submit" class="btn btn-primary shadow-lg" style="margin-top: 10px;">Проверить</button>
+</form>
