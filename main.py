@@ -7,13 +7,13 @@ from starlette.responses import FileResponse
 
 from db import engine
 from routers import user, course, test, video, admin, message
-# from app.utils import send_mail, get_meme
 
 
 from web import login as web_login
 from web import input as web_input
 from web import users as web_users
-
+from web import theory as web_theorys
+from web import test as web_tests
 
 
 if __name__ == '__main__':
@@ -30,6 +30,7 @@ app.include_router(message.router)
 app.include_router(web_login.router)
 app.include_router(web_input.router)
 app.include_router(web_users.router)
+app.include_router(web_theorys.router)
 
 
 if __name__ == '__main__':
