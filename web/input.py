@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, Request
 from fastapi.templating import Jinja2Templates
 from starlette.responses import RedirectResponse
 from sqlmodel import Session, select
-from models import User, Avatar
+from models import User, Avatar, Course
 from db import get_session
 from jwt import decode
 from config import SECRET_KEY, ALGORITHM
