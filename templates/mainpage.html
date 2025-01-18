@@ -48,10 +48,9 @@
         
             setTimeout(() => {
                 window.location.href = '/login';
-            }, 500); // Задержка должна совпадать с длительностью анимации
+            }, 500);
         }
         
-        // Добавьте класс show при загрузке страницы
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('auth-container');
             container.classList.add('show');
