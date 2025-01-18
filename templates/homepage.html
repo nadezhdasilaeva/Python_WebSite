@@ -35,18 +35,54 @@
         .navbar-nav .nav-link {
             font-size: 1.25rem;
         }
+        .card-text {
+            color: black;
+            text-decoration: none;
+        }
     </style>
 {% endblock %}
 
 {% block content %}
     {% include 'navbar.html' %}
     <div class="container">
-        <h3 class="text-center" style="margin-top: 20;">Главная страница</h3>
+        <h3 class="text-center" style="margin-bottom: 30px; margin-top: 20px;">Главная страница</h3>
         {% for error in errors %}
                     <div class="alert alert-danger" role="alert">
                             {{ error }}
                     </div>
         {% endfor %}
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Теоретические материалы</h5>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Тема урока 1</h5>
+                        <div class="row">
+                            <a href="/article/{{1}}" class="card-text">Описание темы урока 1</a>
+                            <a href="/tests/{{1}}" class="card-text">Тестовое задание</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Практические материалы</h5>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Тема урока 2</h5>
+                        <p class="card-text">Описание темы урока 2.</p>
+                        <a href="#" class="btn btn-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
