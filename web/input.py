@@ -30,8 +30,9 @@ def home(request: Request, db: Session=Depends(get_session)):
         id = payload.get("sub")
         user = db.query(User).filter(User.id == id).first()
         image_db = db.exec(select(Avatar).where(Avatar.user_id == user.id)).first()
+        course = db.query(Course).all()
         if image_db:
             image_decode = base64.b64encode(image_db.image).decode("utf-8")
-            return templates.TemplateResponse("homepage.html", {"request": request, "img": image_decode})
+            return templates.TemplateResponse("homepage.html", {"request": request, "img": image_decode, "course": course})
         else:
             return templates.TemplateResponse("homepage.html", {"request": request})
