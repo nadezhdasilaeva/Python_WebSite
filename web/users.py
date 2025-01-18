@@ -8,7 +8,7 @@ from db import get_session
 from sqlmodel import Session, select
 from jwt import decode
 from config import SECRET_KEY, ALGORITHM
-# import base64
+import base64
 
 
 router = APIRouter(include_in_schema=False)
@@ -58,8 +58,6 @@ async def create_avatar(request: Request, file: UploadFile = File(...), db: Sess
         user = db.query(User).filter(User.id == id).first()
         image_db = db.exec(select(Avatar).where(Avatar.user_id == user.id)).first()
         image_data = await file.read()
-
-        # Check file size
         if len(image_data) > 2 * 1024 * 1024:
             errors.append("Файл слишком большой. Максимальный допустимый размер 2 МВ.")
             return templates.TemplateResponse("UploadAvatar.html", {"request": request, "errors": errors})
