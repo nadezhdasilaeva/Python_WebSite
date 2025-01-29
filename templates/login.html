@@ -67,7 +67,7 @@
                                             </span>
                                             <input type="password" required class="form-control" name="password">
                                         </div>
-                                        <a href="/vosst_passwd" class="text-muted float-end mb-2">Забыл пароль?</a>
+                                        <a href="/vosst_password" class="text-muted float-end mb-2">Забыл пароль?</a>
                                     </div>
                                     <button type="submit" class="btn btn-primary w-100 shadow-lg">Войти</button>
                                 </form>
@@ -86,14 +86,12 @@
 
 {% block script %}
     <script>
-        
-        // Добавьте класс show при загрузке страницы
         document.addEventListener('DOMContentLoaded', () => {
-            const container = document.querySelector('.card'); // или другой элемент, который вы хотите анимировать
+            const container = document.querySelector('.card');
             container.classList.add('fade-in');
             setTimeout(() => {
                 container.classList.add('show');
-            }, 10); // Небольшая задержка для активации анимации
+            }, 10);
         });
     </script>
 {% endblock %}
