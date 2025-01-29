@@ -35,4 +35,9 @@ def home(request: Request, db: Session=Depends(get_session)):
             image_decode = base64.b64encode(image_db.image).decode("utf-8")
             return templates.TemplateResponse("homepage.html", {"request": request, "img": image_decode, "course": course})
         else:
-            return templates.TemplateResponse("homepage.html", {"request": request})
+            return templates.TemplateResponse("homepage.html", {"request": request, "course": course})
+
+
+@router.get('/obratnayasvaz')
+def register(request: Request):
+    return templates.TemplateResponse("obratnayasvaz.html", {"request": request})
