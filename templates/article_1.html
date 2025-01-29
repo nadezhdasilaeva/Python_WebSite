@@ -1,51 +1,32 @@
-{% extends "base.html" %}
+<div class="container">
+    {% if course_data %}
+        {{ course_data | safe }}
+    {% endif %}
+    <h1 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Что такое Python?</h1>
+    <p>Python — это один из самых популярных языков программирования в мире.</p>
+    <p>Его ключевые особенности:</p>
+    <ol>
+        <li><strong>Простота и читабельность.</strong> Код на Python похож на обычный английский язык, что делает его идеальным для новичков.</li>
+        <li><strong>Универсальность.</strong> Python используют для создания веб-приложений, анализа данных, искусственного интеллекта, автоматизации задач, и даже игр.</li>
+        <li><strong>Кроссплатформенность.</strong> Программы на Python можно запускать на Windows, macOS, Linux и других системах без изменений.</li>
+        <li><strong>Большая стандартная библиотека.</strong> Python предоставляет множество готовых инструментов для работы с текстами, числами, файлами, веб-серверами и многим другим.</li>
+    </ol>
+    <h1 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Как установить Python?</h1>
+    <p>Шаг 1: Скачайте Python</p>
+    <ol>
+        <li>Перейдите на официальный сайт Python: <strong>https://www.python.org.</strong></li>
+        <li>На главной странице нажмите на кнопку Download Python. Сайт автоматически предложит версию, 
+            подходящую для вашей операционной системы (Windows, macOS, Linux).</li>
+    </ol>
+    <p>Шаг 2: Установите Python</p>
+    <ol>
+        <li>После скачивания откройте файл установки.</li>
+        <li>Во время установки обязательно поставьте галочку "Add Python to PATH" — это упростит работу с Python из командной строки.</li>
+        <li>Нажмите кнопку Install Now и дождитесь окончания установки.</li>
+    </ol>
 
-{% block title %}
-    <title>Теория</title>
-{% endblock %}
+</div>
 
-{% block style %}
-    <style>
-        .profile-pic{
-        display: inline-block;
-        vertical-align: middle;
-            width: 50px;
-            height: 50px;
-            overflow: hidden;
-        border-radius: 50%;
-        }
-
-        .profile-pic img{
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        }
-        .profile-menu .dropdown-menu {
-        right: 0;
-        left: unset;
-        }
-        .profile-menu .fa-fw {
-        margin-right: 10px;
-        }
-
-        .toggle-change::after {
-        border-top: 0;
-        border-bottom: 0.3em solid;
-        }
-        .navbar-nav .nav-link {
-            font-size: 1.25rem;
-        }
-    </style>
-{% endblock %}
-
-{% block content %}
-    {% include 'navbar.html' %}
-    
-    {{ course_data | safe }}
-
-
-{% endblock %}
-
-{% block script %}
-
-{% endblock %}
+<div class="article-navigation-start" style="text-align: center; margin-bottom: 100px;">
+    <a href="/tests/{{1}}" class="btn btn-primary">Далее</a>
+</div>
