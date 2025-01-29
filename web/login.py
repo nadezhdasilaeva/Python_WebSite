@@ -11,7 +11,6 @@ router = APIRouter(include_in_schema=False)
 templates = Jinja2Templates(directory="templates")
 
 
-
 @router.get("/login")
 def login(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
@@ -100,3 +99,8 @@ async def create_new_password(request: Request, db: Session = Depends(get_sessio
     db.commit()
     db.refresh(user)
     return responses.RedirectResponse("/login", status_code=status.HTTP_302_FOUND)
+
+
+@router.get('/vosst_passwd')
+def register(request: Request):
+    return templates.TemplateResponse("vosst_passwd.html", {"request": request})
