@@ -6,37 +6,70 @@
 
 {% block style %}
     <style>
-        .profile-pic{
-        display: inline-block;
-        vertical-align: middle;
+        .profile-pic {
+            display: inline-block;
+            vertical-align: middle;
             width: 50px;
             height: 50px;
             overflow: hidden;
-        border-radius: 50%;
+            border-radius: 50%;
         }
 
-        .profile-pic img{
-        width: 100%;
-        height: auto;
-        object-fit: cover;
+        .profile-pic img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
         }
+
         .profile-menu .dropdown-menu {
-        right: 0;
-        left: unset;
+            right: 0;
+            left: unset;
         }
+
         .profile-menu .fa-fw {
-        margin-right: 10px;
+            margin-right: 10px;
         }
 
         .toggle-change::after {
-        border-top: 0;
-        border-bottom: 0.3em solid;
+            border-top: 0;
+            border-bottom: 0.3em solid;
         }
+
         .navbar-nav .nav-link {
             font-size: 1.25rem;
         }
+
         .card-text {
             color: black;
+            text-decoration: none;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-weight: bold;
+        }
+
+        .card-text:hover {
+            color: #a8b0b8;
+            /* text-decoration: underline; */
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-align: center;
             text-decoration: none;
         }
     </style>
@@ -55,15 +88,55 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Теоретические материалы</h5>
+                        <h5 class="card-title" style="text-align: center;">Теоретические материалы</h5>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Тема урока 1</h5>
+                        <h5 class="card-title">Введение в Python</h5>
                         <div class="row">
-                            <a href="/article/{{1}}" class="card-text">Описание темы урока 1</a>
-                            <a href="/tests/{{1}}" class="card-text">Тестовое задание</a>
+                            <a href="/article/{{1}}" class="card-text" style="margin-left: 20px;">Что такое Python и как его установить?</a>
+                            <a href="/tests/{{1}}" class="card-text" style="margin-left: 50px;">Тестовое задание</a>
+                        </div>
+                        <h5 class="card-title">Ввод и вывод данных</h5>
+                        <div class="row">
+                            <a href="/article/{{2}}" class="card-text" style="margin-left: 20px;">Ввод и вывод данных</a>
+                            <a href="/tests/{{2}}" class="card-text" style="margin-left: 50px;">Тестовое задание</a>
+                        </div>
+                        <h5 class="card-title">Переменные и типы данных</h5>
+                        <div class="row">
+                            <a href="/article/{{3}}" class="card-text" style="margin-left: 20px;">Переменные и типы данных</a>
+                            <a href="/tests/{{3}}" class="card-text" style="margin-left: 50px;">Тестовое задание</a>
+                        </div>
+                        <h5 class="card-title">Операторы</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Операторы</a>
+                            <a href="#" class="card-text" style="margin-left: 50px;">Тестовое задание</a>
+                        </div>
+                        <h5 class="card-title">Условные конструкции</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Условные конструкции</a>
+                            <a href="#" class="card-text" style="margin-left: 50px;">Тестовое задание</a>
+                        </div>
+                        <h5 class="card-title">Циклы</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Циклы</a>
+                            <a href="#" class="card-text" style="margin-left: 50px;">Тестовое задание</a>
+                        </div>
+                        <h5 class="card-title">Функции</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Функции</a>
+                            <a href="#" class="card-text" style="margin-left: 50px;">Тестовое задание</a>
+                        </div>
+                        <h5 class="card-title">Списки и кортежи</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Списки и кортежи</a>
+                            <a href="#" class="card-text" style="margin-left: 50px;">Тестовое задание</a>
+                        </div>
+                        <h5 class="card-title">Словари</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Словари</a>
+                            <a href="#" class="card-text" style="margin-left: 50px;">Тестовое задание</a>
                         </div>
                     </div>
                 </div>
@@ -71,14 +144,59 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Практические материалы</h5>
+                        <h5 class="card-title" style="text-align: center;">Практические материалы</h5>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Тема урока 2</h5>
-                        <p class="card-text">Описание темы урока 2.</p>
-                        <a href="#" class="btn btn-primary">Подробнее</a>
+                        <h5 class="card-title">Ввод и вывод данных</h5>
+                        <div class="row">
+                            <a href="/practices/{{2}}/{{1}}" class="card-text" style="margin-left: 20px;">Практическое задание №1</a>
+                            <a href="/practices/{{2}}/{{2}}" class="card-text" style="margin-left: 20px;">Практическое задание №2</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №3</a>
+                        </div>
+                        <h5 class="card-title">Переменные и типы данных</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №1</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №2</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №3</a>
+                        </div>
+                        <h5 class="card-title">Операторы</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №1</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №2</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №3</a>
+                        </div>
+                        <h5 class="card-title">Условные конструкции</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №1</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №2</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №3</a>
+                        </div>
+                        <h5 class="card-title">Циклы</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №1</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №2</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №3</a>
+                        </div>
+                        <h5 class="card-title">Функции</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №1</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №2</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №3</a>
+                        </div>
+                        <h5 class="card-title">Списки и кортежи</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №1</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №2</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №3</a>
+                        </div>
+                        <h5 class="card-title">Словари</h5>
+                        <div class="row">
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №1</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №2</a>
+                            <a href="#" class="card-text" style="margin-left: 20px;">Практическое задание №3</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,11 +208,10 @@
     <script>
         document.querySelectorAll('.dropdown-toggle').forEach(item => {
             item.addEventListener('click', event => {
-                if(event.target.classList.contains('dropdown-toggle') ){
-                event.target.classList.toggle('toggle-change');
-                }
-                else if(event.target.parentElement.classList.contains('dropdown-toggle')){
-                event.target.parentElement.classList.toggle('toggle-change');
+                if (event.target.classList.contains('dropdown-toggle')) {
+                    event.target.classList.toggle('toggle-change');
+                } else if (event.target.parentElement.classList.contains('dropdown-toggle')) {
+                    event.target.parentElement.classList.toggle('toggle-change');
                 }
             })
         });
