@@ -33,7 +33,7 @@
         border-bottom: 0.3em solid;
         }
         .navbar-nav .nav-link {
-            font-size: 1.25rem; /* Увеличьте размер шрифта по вашему усмотрению */
+            font-size: 1.25rem;
         }
         .container {
             display: flex;
@@ -58,7 +58,7 @@
 {% block content %}
     {% include 'navbar.html' %}
     <div class="container">
-        <h3 class="text-center" style="margin-top: 20;">Главная страница</h3>
+        <h3 class="text-center" style="margin-top: 20;">Загрузка вашего аватара</h3>
         {% for error in errors %}
                     <div class="alert alert-danger" role="alert">
                             {{ error }}
@@ -66,7 +66,6 @@
         {% endfor %}
     </div>
     <div class="container">
-        <h2>Upload Your Avatar</h2>
         <form action="/upload_avatar" method="POST" enctype="multipart/form-data">
             <input type="file" name="file" required />
             <button type="submit" class="btn btn-success">
