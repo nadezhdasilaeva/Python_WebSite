@@ -13,7 +13,7 @@ from web import login as web_login
 from web import input as web_input
 from web import users as web_users
 from web import theory as web_theorys
-from web import test as web_tests
+# from web import test as web_tests
 
 
 if __name__ == '__main__':
