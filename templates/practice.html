@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Теория</title>
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        .profile-pic{
+            display: inline-block;
+            vertical-align: middle;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .profile-pic img{
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .profile-menu .dropdown-menu {
+            right: 0;
+            left: unset;
+        }
+
+        .profile-menu .fa-fw {
+            margin-right: 10px;
+        }
+
+        .toggle-change::after {
+            border-top: 0;
+            border-bottom: 0.3em solid;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.25rem;
+        }
+
+        .small-msg {
+            font-size: 1.2rem;
+            padding: 5px;
+            text-align:center;
+        }
+
+        #editor {
+            height: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: monospace;
+            overflow: auto;
+            background-color: #f8f9fa;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .input-area {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .result-area-sucess, .result-area-danger {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .result-area-sucess {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .result-area-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .article-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 100px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .article-navigation-start {
+            display: flex;
+            margin-top: 100px;
+            margin-right: 20px;
+            justify-content: end;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Практическое задание</h1>
+        {% if (course.id == 2 and practice.id == 1) %}
+            {% include 'practice_2_1.html' %}
+        {% elif (course.id == 2 and practice.id == 2) %}
+            {% include 'practice_2_2.html' %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block script %}
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.0/mode/javascript/javascript.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const editor = CodeMirror(document.getElementById('editor'), {
+                lineNumbers: true,
+                mode: "javascript",
+                theme: "default",
+                tabSize: 4,
+                indentWithTabs: true,
+                lineWrapping: true
+            });
+            
+            // Обработка события для получения текста из редактора
+            document.querySelector('form').addEventListener('submit', function() {
+                const content = editor.getValue();
+                document.getElementById('editorContentInput').value = content;
+            });
+        });
+        function getTextFromEditor() {
+             const editorContent = document.getElementById('editor').innerText.trim();
+             document.getElementById('editorContentInput').value = editorContent;
+             console.log(editorContent); // Для проверки, можно заменить на отправку формы
+         }
+        
+    </script>
+{% endblock %}

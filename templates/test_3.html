@@ -1,0 +1,109 @@
+<form id="quiz-form" method="POST" action="/tests/{{3}}/{{6}}" style="margin-bottom: 20px;">
+    <div class="form-group">
+        <label for="exercise">{{ tests.0.data[0].exercise }}</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="A1" value="A">
+            <label class="form-check-label" for="A1">Число в программе</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="B1" value="B">
+            <label class="form-check-label" for="B1">Место, где хранятся данные, с именем для обращения к ним</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="C1" value="C">
+            <label class="form-check-label" for="C1">Команда для вывода данных</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="D1" value="D">
+            <label class="form-check-label" for="D1">Тип данных</label>
+        </div>  
+    </div>            
+
+    <button type="submit" class="btn btn-primary shadow-lg" style="margin-top: 10px">Проверить</button>
+    
+    {% if messages[tests.0.id] %}
+        <div class="alert alert-success small-msg" role="alert" style="display: inline-block; transform: translate(1em, 0.5em);">
+            {{ messages[tests.0.id] }}
+        </div>
+    {% endif %}
+    {% if errors[tests.0.id] %}
+        <div class="alert alert-danger small-msg" role="alert" style="display: inline-block; transform: translate(1em, 0.5em);">
+            {{ errors[tests.0.id] }}
+        </div>
+    {% endif %}
+</form>
+
+<form id="quiz-form" method="POST" action="/tests/{{3}}/{{7}}" style="margin-bottom: 20px;">
+    <div class="form-group">
+        <label for="exercise">{{ tests.1.data[0].exercise }}</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="A2" value="A">
+            <label class="form-check-label" for="A2">Python преобразует их автоматически</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="B2" value="B">
+            <label class="form-check-label" for="B2">Будет ошибка</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="C2" value="C">
+            <label class="form-check-label" for="C2">Число станет строкой</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="D2" value="D">
+            <label class="form-check-label" for="D2">Строка станет числом</label>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary shadow-lg" style="margin-top: 10px;">Проверить</button>
+    
+    {% if messages[tests.1.id] %}
+        <div class="alert alert-success small-msg" role="alert" style="display: inline-block; transform: translate(1em, 0.5em);">
+            {{ messages[tests.1.id] }}
+        </div>
+    {% endif %}
+    {% if errors[tests.1.id] %}
+        <div class="alert alert-danger small-msg" role="alert" style="display: inline-block; transform: translate(1em, 0.5em);">
+            {{ errors[tests.1.id] }}
+        </div>
+    {% endif %}
+</form>
+
+<form id="quiz-form" method="POST" action="/tests/{{3}}/{{8}}" style="margin-bottom: 20px;">
+    <div class="form-group">
+        <label for="exercise">{{ tests.2.data[0].exercise }}</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="A3" value="A">
+            <label class="form-check-label" for="A3">int</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="B3" value="B">
+            <label class="form-check-label" for="B3">float</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="C3" value="C">
+            <label class="form-check-label" for="C3">str</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="D3" value="D">
+            <label class="form-check-label" for="D3">dict</label>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary shadow-lg" style="margin-top: 10px;">Проверить</button>
+    
+    {% if messages[tests.2.id] %}
+        <div class="alert alert-success small-msg" role="alert" style="display: inline-block; transform: translate(1em, 0.5em);">
+            {{ messages[tests.2.id] }}
+        </div>
+    {% endif %}
+    {% if errors[tests.2.id] %}
+        <div class="alert alert-danger small-msg" role="alert" style="display: inline-block; transform: translate(1em, 0.5em);">
+            {{ errors[tests.2.id] }}
+        </div>
+    {% endif %}
+</form>
+
+<div class="article-navigation" style="text-align: center; margin-bottom: 100px;">
+    <a href="/article/{{3}}" class="btn btn-primary">Назад</a>
+    <a href="/article/{{4}}" class="btn btn-primary">Далее</a>
+</div>

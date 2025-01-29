@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Редактировать профиль</title>
+{% endblock %}
+
+{% block style %}
+    <style>
+        .profile-pic {
+            display: inline-block;
+            vertical-align: middle;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.25rem;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    <section style="background-color: #eee; min-height: 92vh;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-9">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            {% if img %}
+                                <img src="data:image/png;base64,{{ img }}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"/>
+                            {% else %}
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                                class="rounded-circle img-fluid" style="width: 150px;">
+                            {% endif %}
+                            <h5 class="my-3">{{user.name}}</h5>
+                            <div class="d-flex justify-content-center mb-2">
+                                <a href="/avatar" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary ms-1">Загрузить изображение</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="mb-4">Редактировать профиль</h5>
+                            {% if errors %}
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        {% for error in errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                            <form action="/edit_account" method="post">
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <label for="name" class="form-label">Имя:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="name" name="name" class="form-control" value="{{ user.name }}" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <label for="email" class="form-label">Электронная почта:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="email" id="email" name="email" class="form-control" value="{{ user.email }}" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <label for="phone" class="form-label">Телефон:</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="phone" name="phone" class="form-control" value="{{ user.phone }}" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-9">
+                                        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

@@ -1,0 +1,31 @@
+<form method="POST" action="/practices/{{2}}/{{1}}" class="form-group">
+    <div class="input-area">
+        <label for="exercise" class="label">{{ practices.0.data[0].exercise }}</label>
+        <label for="text" class="label">Введите ваш код:</label>
+        <div id="editor" contenteditable="true" class="form-control" style="margin-bottom: 20px;"></div>
+        <input type="hidden" name="answer" id="editorContentInput">
+        <label for="text" class="label">Входные данные:</label>
+        <input type="text" name="input_data" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block" onclick="getTextFromEditor()">Проверить</button>
+    
+    {% if messages[practices.0.id] %}
+        <div class="result-area-sucess">
+            <h2>Результат:</h2>
+            <pre>{{ result }}</pre>
+            <pre>{{ messages[practices.0.id] }}</pre>
+        </div>
+    {% endif %}
+                
+    {% if errors[practices.0.id] %}
+        <div class="result-area-danger">
+            <h2>Результат:</h2>
+            <pre>{{ result }}</pre>
+            <pre>{{ errors[practices.0.id] }}</pre>
+        </div>
+    {% endif %}
+</form>
+
+<div class="article-navigation-start" style="text-align: center; margin-bottom: 100px;">
+    <a href="/practices/{{2}}/{{2}}" class="btn btn-primary">Далее</a>
+</div>

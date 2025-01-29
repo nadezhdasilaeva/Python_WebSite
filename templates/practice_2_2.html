@@ -1,0 +1,36 @@
+<form method="POST" action="/practices/{{2}}/{{2}}">
+    <div class="form-group input-area">
+        <div class="row">
+            <label for="exercise" class="label">{{ practices.1.data[0].exercise }}</label>
+            <label for="text" class="label">Входные данные: Иван</label>
+            <label for="text" class="label">Выходные данные: Привет, Иван!</label>
+            <label for="text" style="display: block;" class="label">Введите ваш код:</label>
+        </div>
+        
+        <div id="editor" contenteditable="true" class="form-control" style="margin-bottom: 20px;"></div>
+        <input type="hidden" name="answer" id="editorContentInput">
+        <label for="text" style="display: block;" class="label">Входные данные:</label>
+        <input type="text" name="input_data">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block" onclick="getTextFromEditor()">Проверить</button>
+    {% if messages[practices.1.id] %}
+        <div class="result-area-sucess">
+            <h2>Результат:</h2>
+            <pre>{{ result }}</pre>
+            <pre>{{ messages[practices.1.id] }}</pre>
+        </div>
+    {% endif %}
+                
+    {% if errors[practices.1.id] %}
+        <div class="result-area-danger">
+            <h2>Результат:</h2>
+            <pre>{{ result }}</pre>
+            <pre>{{ errors[practices.1.id] }}</pre>
+        </div>
+    {% endif %}
+</form>
+
+<div class="article-navigation" style="text-align: center; margin-bottom: 100px;">
+    <a href="/practices/{{2}}/{{1}}" class="btn btn-primary">Назад</a>
+    <a href="/practices/{{2}}/{{3}}" class="btn btn-primary">Далее</a>
+</div>

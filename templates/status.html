@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Роли</title>
+{% endblock %}
+
+{% block style %}
+    <style>
+        .profile-pic{
+            display: inline-block;
+            vertical-align: middle;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .profile-pic img{
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        
+        .profile-menu .dropdown-menu {
+            right: 0;
+            left: unset;
+        }
+
+        .profile-menu .fa-fw {
+            margin-right: 10px;
+        }
+
+        .toggle-change::after {
+            border-top: 0;
+            border-bottom: 0.3em solid;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.25rem;
+        }
+
+        .card-text {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    <div class="container">
+        {% for error in errors %}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+        {% endfor %}
+
+        <form class="d-flex" action="/search_status" style="margin-top: 20px;">
+            <input class="form-control me-2" id="autocomplete" name="query" type="search" placeholder="Поиск" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">
+                <i class="bi bi-search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </i>
+            </button>
+        </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Почта</th>
+                    <th scope="col">Телефон</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Дата регистрации</th>
+                    <th scope="col">Роль</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {% for user in users %}
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phone}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.date_reg}}</td>
+                        <td>{{user.role}}</td>
+                        {% if user.role == "user" %}
+                            <td>
+                                <form method="POST" action="/teacher/{{user.id}}">  
+                                    <button type="submit" class="btn btn-secondary">Наставник</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="POST" action="/admin/{{user.id}}">  
+                                    <button type="submit" class="btn btn-secondary">Администратор</button>
+                                </form>
+                            </td>
+                        {% elif user.role == "teacher" %}
+                            <td>
+                                <form method="POST" action="/user/{{user.id}}">  
+                                    <button type="submit" class="btn btn-secondary">Студент</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="POST" action="/admin/{{user.id}}">  
+                                    <button type="submit" class="btn btn-secondary">Администратор</button>
+                                </form>
+                            </td>
+                        {% else %}
+                            <td>
+                                <form method="POST" action="/user/{{user.id}}">  
+                                    <button type="submit" class="btn btn-secondary">Студент</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="POST" action="/teacher/{{user.id}}">  
+                                    <button type="submit" class="btn btn-secondary">Наставник</button>
+                                </form>
+                            </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

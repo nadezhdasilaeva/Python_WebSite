@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Теория</title>
+{% endblock %}
+
+{% block style %}
+    <style>
+        .profile-pic{
+            display: inline-block;
+            vertical-align: middle;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+
+        .profile-pic img{
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .profile-menu .dropdown-menu {
+            right: 0;
+            left: unset;
+        }
+
+        .profile-menu .fa-fw {
+            margin-right: 10px;
+        }
+
+        .toggle-change::after {
+            border-top: 0;
+            border-bottom: 0.3em solid;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.25rem; 
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .container {
+            font-size: 24px;
+            margin-bottom: 100px;
+        }
+
+        .article-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 100px;
+            margin-left: 300px;
+            margin-right: 300px;
+        }
+
+        .article-navigation-start {
+            display: flex;
+            margin-top: 100px;
+            margin-right: 300px;
+            justify-content: end;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    
+    {% if course.id == 1 %}
+        {% include 'article_1.html' %}
+    {% elif course.id == 2 %}
+        {% include 'article_2.html' %}
+    {% elif course.id == 3 %}
+        {% include 'article_3.html' %}
+    {% endif %}
+
+    
+
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
