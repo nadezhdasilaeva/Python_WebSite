@@ -109,6 +109,25 @@ class Test(SQLModel, table=True):
         self.date_last_update = datetime.utcnow()
 
 
+class PracticeData(BaseModel):
+    exercise: str
+    true_answer: str
+
+
+class Practice(SQLModel, table=True):
+    id: Optional[int] = Field(primary_key=True, default=None)
+    courses_id: int = Field(foreign_key='course.id')
+    title: str
+    topic: str = Field(default='topic')
+    data: List[PracticeData] = Field(sa_column=Column(JSON))
+    date_create: datetime = Field(default=datetime.utcnow())
+    date_last_update: datetime = Field(default=datetime.utcnow())
+
+    def update_data(self, data: PracticeData):
+        self.data = data
+        self.date_last_update = datetime.utcnow()
+
+
 class Message(SQLModel, table=True):
     id: Optional[int] = Field(primary_key=True, default=None)
     sender_user_id: int = Field(foreign_key='user.id')
