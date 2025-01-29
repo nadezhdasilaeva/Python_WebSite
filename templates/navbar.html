@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0d6efd;">
     <div class="container-fluid">
         <a class="navbar-brand" href="/home">
-            <i class="fab fa-python" style="color: white; font-size: xx-large;"></i>
+            <i class="fab fa-python" style="color: white; font-size: xx-large;">PyLearn</i>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,8 +11,23 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/home">Главная</a>
                 </li>
+                {% if request.cookies.role == "super_user" %}
+                    {% if request.cookies.get("access_token") %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Пользователи
+                            </a>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/all_users">Все пользователи</a></li>
+                            <li><a class="dropdown-item" href="/status">Роли</a></li>
+                            <li><a class="dropdown-item" href="/BAN_user">Блокировка пользователя</a></li>
+                            <li><a class="dropdown-item" href="/update_password">Смена пароля</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Обратная связь</a>
+                    <a class="nav-link" href="obratnayasvaz">Обратная связь</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu"> 
