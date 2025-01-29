@@ -37,9 +37,23 @@
         }
         .small-msg {
         
-        font-size: 1.2rem;
+        font-size: 1rem;
         padding: 5px;
         text-align:center;
+        
+        }
+        .article-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 100px;
+            margin-left: 300px;
+            margin-right: 300px;
+        }
+        .article-navigation-start {
+            display: flex;
+            margin-top: 100px;
+            margin-right: 300px;
+            justify-content: end;
         }
     </style>
 {% endblock %}
@@ -51,7 +65,12 @@
         <h3 class="text-center" style="margin-bottom: 20px; margin-top: 20px;">Тестовое задание</h3>
         {% if course.id == 1 %}
             {% include 'test_1.html' %}
+        {% elif course.id == 2 %}
+            {% include 'test_2.html' %}
+        {% elif course.id == 3 %}
+            {% include 'test_3.html' %}
         {% endif %}
+        
         
     </div>
 
