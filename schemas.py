@@ -6,7 +6,7 @@ from pydantic import BaseModel, EmailStr
 from sqlmodel import Field
 from pydantic_extra_types.phone_numbers import PhoneNumber
 
-from models import TestData, CompletedCourses
+from models import TestData, CompletedCourses, PracticeData
 
 
 class UserCreate(BaseModel):
@@ -73,6 +73,12 @@ class AddTest(BaseModel):
     title: str
     topic: str
     data: List[TestData]
+
+
+class AddPractice(BaseModel):
+    title: str
+    topic: str
+    data: List[PracticeData]
 
 
 class ReadTestSearch(BaseModel):
