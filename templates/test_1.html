@@ -2,65 +2,108 @@
     <div class="form-group">
         <label for="exercise">{{ tests.0.data[0].exercise }}</label>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="answer" id="A" value="A">
-            <label class="form-check-label" for="A">Высокая сложность кода</label>
+            <input class="form-check-input" type="radio" name="answer" id="A1" value="A">
+            <label class="form-check-label" for="A1">Высокая сложность кода</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="answer" id="B" value="B">
-            <label class="form-check-label" for="B">Схожесть на английский язык</label>
+            <input class="form-check-input" type="radio" name="answer" id="B1" value="B">
+            <label class="form-check-label" for="B1">Схожесть на английский язык</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="answer" id="C" value="C">
-            <label class="form-check-label" for="C">Ограниченная функциональность</label>
+            <input class="form-check-input" type="radio" name="answer" id="C1" value="C">
+            <label class="form-check-label" for="C1">Ограниченная функциональность</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="answer" id="D" value="D">
-            <label class="form-check-label" for="D">Ограниченная функциональность</label>
+            <input class="form-check-input" type="radio" name="answer" id="D1" value="D">
+            <label class="form-check-label" for="D1">Ограниченная функциональность</label>
         </div>  
     </div>            
+
+    <button type="submit" class="btn btn-primary shadow-lg" style="margin-top: 10px">Проверить</button>
+    
     {% if messages[tests.0.id] %}
-        <div class="alert alert-success small-msg" role="alert" style="margin-top: 15px; width: 120px;">
+        <div class="alert alert-success small-msg" role="alert" style="display: inline-block; transform: translate(1em, 0.5em);">
             {{ messages[tests.0.id] }}
         </div>
     {% endif %}
     {% if errors[tests.0.id] %}
-        <div class="alert alert-danger small-msg" role="alert" style="margin-top: 15px; width: 120px;">
+        <div class="alert alert-danger small-msg" role="alert" style="display: inline-block; transform: translate(1em, 0.5em);">
             {{ errors[tests.0.id] }}
         </div>
     {% endif %}
-    
-    <button type="submit" class="btn btn-primary shadow-lg" style="margin-top: 10px;">Проверить</button>
 </form>
 
-<form id="quiz-form" method="POST" action="/tests/{{1}}/{{2}}">
+<form id="quiz-form" method="POST" action="/tests/{{1}}/{{2}}" style="margin-bottom: 20px;">
     <div class="form-group">
         <label for="exercise">{{ tests.1.data[0].exercise }}</label>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="answer" id="A" value="A">
-            <label class="form-check-label" for="A">Создание веб-приложений</label>
+            <input class="form-check-input" type="radio" name="answer" id="A2" value="A">
+            <label class="form-check-label" for="A2">Создание веб-приложений</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="answer" id="B" value="B">
-            <label class="form-check-label" for="B">Анализ данных</label>
+            <input class="form-check-input" type="radio" name="answer" id="B2" value="B">
+            <label class="form-check-label" for="B2">Анализ данных</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="answer" id="C" value="C">
-            <label class="form-check-label" for="C">Искусственный интеллект</label>
+            <input class="form-check-input" type="radio" name="answer" id="C2" value="C">
+            <label class="form-check-label" for="C2">Искусственный интеллект</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="answer" id="D" value="D">
-            <label class="form-check-label" for="D">Все вышеперечисленное</label>
+            <input class="form-check-input" type="radio" name="answer" id="D2" value="D">
+            <label class="form-check-label" for="D2">Все вышеперечисленное</label>
         </div>
     </div>
+    
+    <button type="submit" class="btn btn-primary shadow-lg" style="margin-top: 10px;">Проверить</button>
+    
     {% if messages[tests.1.id] %}
-        <div class="alert alert-success small-msg" role="alert" style="margin-top: 15px; width: 120px;">
+        <div class="alert alert-success small-msg" role="alert" style="display: inline-block; transform: translate(1em, 0.5em);">
             {{ messages[tests.1.id] }}
         </div>
     {% endif %}
     {% if errors[tests.1.id] %}
-        <div class="alert alert-danger small-msg" role="alert" style="margin-top: 15px; width: 120px;">
+        <div class="alert alert-danger small-msg" role="alert" style="display: inline-block; transform: translate(1em, 0.5em);">
             {{ errors[tests.1.id] }}
         </div>
     {% endif %}
-    <button type="submit" class="btn btn-primary shadow-lg" style="margin-top: 10px;">Проверить</button>
 </form>
+
+<form id="quiz-form" method="POST" action="/tests/{{1}}/{{3}}" style="margin-bottom: 20px;">
+    <div class="form-group">
+        <label for="exercise">{{ tests.2.data[0].exercise }}</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="A3" value="A">
+            <label class="form-check-label" for="A3">Создание веб-приложений</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="B3" value="B">
+            <label class="form-check-label" for="B3">Анализ данных</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="C3" value="C">
+            <label class="form-check-label" for="C3">Искусственный интеллект</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="answer" id="D3" value="D">
+            <label class="form-check-label" for="D3">Все вышеперечисленное</label>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary shadow-lg" style="margin-top: 10px;">Проверить</button>
+    
+    {% if messages[tests.2.id] %}
+        <div class="alert alert-success small-msg" role="alert" style="display: inline-block; transform: translate(1em, 0.5em);">
+            {{ messages[tests.2.id] }}
+        </div>
+    {% endif %}
+    {% if errors[tests.2.id] %}
+        <div class="alert alert-danger small-msg" role="alert" style="display: inline-block; transform: translate(1em, 0.5em);">
+            {{ errors[tests.2.id] }}
+        </div>
+    {% endif %}
+</form>
+
+<div class="article-navigation" style="text-align: center; margin-bottom: 100px;">
+    <a href="/article/{{1}}" class="btn btn-primary">Назад</a>
+    <a href="/article/{{2}}" class="btn btn-primary">Далее</a>
+</div>
